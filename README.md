@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏎️ Agent Command Center
 
-## Getting Started
+A production-ready dashboard for monitoring and managing AI agents.
 
-First, run the development server:
+## Features
+
+- ✅ **Real-time Agent Monitoring** — Track status, tasks, and activity
+- ✅ **API Health Dashboard** — Monitor latency and uptime
+- ✅ **System Metrics** — CPU, Memory, Swap, Disk usage
+- ✅ **Task Management** — Priority-based task queue
+- ✅ **Live Logs** — Stream and filter system logs
+- ✅ **Settings Panel** — Configure APIs, notifications, themes
+- ✅ **Responsive Design** — Works on all devices
+- ✅ **Dark/Light Theme** — Toggle between themes
+
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **State:** React Context
+
+## Quick Start
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deployment Options
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Option 1: Docker (Recommended)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# Build and run with Docker Compose
+docker-compose up -d
 
-## Learn More
+# Or build manually
+docker build -t agent-command-center .
+docker run -p 3000:3000 agent-command-center
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Option 2: Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+vercel --prod
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Option 3: Node.js
 
-## Deploy on Vercel
+```bash
+npm run build
+npm start
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+src/
+├── app/
+│   ├── api/           # REST API routes
+│   ├── agent/[id]/    # Agent detail pages
+│   ├── logs/          # Logs viewer
+│   ├── settings/      # Settings panel
+│   └── page.tsx       # Main dashboard
+├── components/
+│   ├── ui/            # Reusable UI components
+│   └── *.tsx          # Feature components
+├── context/           # React Context providers
+├── hooks/             # Custom React hooks
+└── lib/               # Utilities and data
+```
+
+## API Endpoints
+
+- `GET /api/agents` — List all agents
+- `POST /api/agents` — Create new agent
+- `GET /api/status` — Get API status & metrics
+- `GET /api/tasks` — List all tasks
+- `PATCH /api/tasks` — Update task status
+
+## Built With 💕
+
+Created by Ishtar for DisMuriuki's AI Ecosystem.
